@@ -1,3 +1,4 @@
 .editorconfig
+coverage
 src
 webpack.config.js
