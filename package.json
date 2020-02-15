@@ -3,14 +3,17 @@
   "version": "0.0.1",
   "description": "Redux store meant to be used as a state store for 18xx games",
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "repository": "git@github.com:18xx-maker/18dux.git",
   "author": "Christopher Giroir <kelsin@valefor.com>",
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "webpack",
+    "build": "rollup -c",
+    "check": "tsc --noEmit",
     "clean": "rimraf coverage dist types",
-    "lint": "eslint --ext js,ts src",
+    "lint": "eslint --ext js,ts src rollup.config.js",
     "prepare": "yarn clean && yarn lint && yarn test",
     "test": "jest",
     "test:cov": "yarn run test --coverage && open-cli coverage/lcov-report/index.html",
@@ -19,6 +22,10 @@
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
+    "@babel/preset-typescript": "^7.8.3",
+    "@rollup/plugin-alias": "^3.0.1",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@types/jest": "^25.1.2",
     "@typescript-eslint/eslint-plugin": "^2.19.2",
     "@typescript-eslint/parser": "^2.19.2",
     "babel-jest": "^25.1.0",
@@ -34,10 +41,10 @@
     "jest": "^25.1.0",
     "open-cli": "^5.0.0",
     "rimraf": "^3.0.2",
-    "typescript": "^3.7.5",
-    "webpack": "^4.41.6",
-    "webpack-cli": "^3.3.11",
-    "webpack-node-externals": "^1.7.2"
+    "rollup": "^1.31.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-typescript2": "^0.26.0",
+    "typescript": "^3.7.5"
   },
   "dependencies": {
     "ramda": "^0.27.0",
@@ -52,7 +59,8 @@
             "node": "current"
           }
         }
-      ]
+      ],
+      "@babel/preset-typescript"
     ]
   },
   "jest": {
