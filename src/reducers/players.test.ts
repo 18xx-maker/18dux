@@ -1,11 +1,11 @@
-import playersReducer from "18dux/reducers/players"
-import { playerAdd, playerRemove } from "18dux/actions"
+import playersReducer from '18dux/reducers/players'
+import { playerAdd, playerRemove } from '18dux/actions'
 
-const Kelsin = {id:'Kelsin', cash:0}
+const Kelsin = { id: 'Kelsin', cash: 0 }
 const addKelsin = playerAdd('Kelsin')
 const remove0 = playerRemove(0)
 const remove99 = playerRemove(99)
-const unknown = {type: 'unknown'}
+const unknown = { type: 'unknown' }
 
 describe('PlayersReducer', () => {
   describe('Unknown action', () => {
