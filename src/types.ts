@@ -8,7 +8,14 @@ export interface Company {
   treasury:number
 }
 
+export enum State {
+  Setup = 'SETUP',
+  Running = 'RUNNING',
+  Ended = 'ENDED'
+}
+
 export interface Store {
+  state:State,
   players:Array<Player>,
   companies:Array<Company>
 }

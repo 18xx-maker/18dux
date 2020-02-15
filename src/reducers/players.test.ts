@@ -13,7 +13,7 @@ describe('PlayersReducer', () => {
       expect(playersReducer(undefined, unknown)).toEqual([])
     })
 
-    test('should do nothing with an unknon action', () => {
+    test('should do nothing with an unknown action', () => {
       expect(playersReducer([Kelsin], unknown)).toEqual([Kelsin])
     })
   })

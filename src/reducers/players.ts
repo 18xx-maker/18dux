@@ -2,7 +2,7 @@ import { AnyAction } from 'redux'
 
 import { remove } from 'ramda'
 
-import { Player } from '18dux/interfaces'
+import { Player } from '18dux/types'
 import { PLAYER_ADD, PLAYER_REMOVE } from '18dux/actions'
 
 const playersReducer = (players:Array<Player> = [], action:AnyAction):Array<Player> => {
