@@ -1,51 +1,51 @@
-import * as actions from "18dux/actions";
+import * as actions from '18dux/actions'
 
 describe('Revenue Actions', () => {
   test('should have name constants', () => {
-    expect(actions.REVENUE).toEqual("REVENUE");
-  });
+    expect(actions.REVENUE).toEqual('REVENUE')
+  })
 
-  describe('revenue_full_pay', () => {
+  describe('revenueFullPay', () => {
     test('should generate a proper action object', () => {
-      expect(actions.revenue_full_pay("B&M", 100)).toEqual({
+      expect(actions.revenueFullPay('B&M', 100)).toEqual({
         type: actions.REVENUE,
-        company: "B&M",
+        company: 'B&M',
         earnings: 100,
         percent: 1.0
-      });
-    });
-  });
+      })
+    })
+  })
 
-  describe('revenue_half_pay', () => {
+  describe('revenueHalfPay', () => {
     test('should generate a proper action object', () => {
-      expect(actions.revenue_half_pay("B&M", 100)).toEqual({
+      expect(actions.revenueHalfPay('B&M', 100)).toEqual({
         type: actions.REVENUE,
-        company: "B&M",
+        company: 'B&M',
         earnings: 100,
         percent: 0.5
-      });
-    });
-  });
+      })
+    })
+  })
 
-  describe('revenue_withhold', () => {
+  describe('revenueWithhold', () => {
     test('should generate a proper action object', () => {
-      expect(actions.revenue_withhold("B&M", 100)).toEqual({
+      expect(actions.revenueWithhold('B&M', 100)).toEqual({
         type: actions.REVENUE,
-        company: "B&M",
+        company: 'B&M',
         earnings: 100,
         percent: 0
-      });
-    });
-  });
+      })
+    })
+  })
 
-  describe('revenue_custom_pay', () => {
+  describe('revenueCustomPay', () => {
     test('should generate a proper action object', () => {
-      expect(actions.revenue_custom_pay("B&M", 100, 0.25)).toEqual({
+      expect(actions.revenueCustomPay('B&M', 100, 0.25)).toEqual({
         type: actions.REVENUE,
-        company: "B&M",
+        company: 'B&M',
         earnings: 100,
         percent: 0.25
-      });
-    });
-  });
-});
+      })
+    })
+  })
+})
