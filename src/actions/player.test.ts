@@ -10,7 +10,7 @@ describe('Player Actions', () => {
     test('should generate a proper action object', () => {
       expect(actions.playerAdd('Kelsin')).toEqual({
         type: actions.PLAYER_ADD,
-        name: 'Kelsin'
+        id: 'Kelsin'
       })
     })
   })
