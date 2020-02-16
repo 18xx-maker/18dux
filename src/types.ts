@@ -5,11 +5,36 @@ export enum PayoutMethod {
   HalfRoundHoldingDown = 'HALF_ROUND_HOLDING_DOWN'
 }
 
-// This is where shares of a company can start
+// This is where shares of a company can be
 export enum ShareLocation {
-  IPO = 'IPO',
   BankPool = 'BANK_POOL',
+  Company = 'COMPANY',
+  IPO = 'IPO',
+  Player = 'PLAYER',
   Treasury = 'TREASURY'
+}
+
+export enum Agent {
+  Company = 'COMPANY',
+  Player = 'PLAYER'
+}
+
+// Points to a player or company
+export interface AgentId {
+  agent:Agent,
+  id:string
+}
+
+// Used to identify a share
+export interface ShareId {
+  // What share in the identified pile
+  index: number,
+
+  // What type of location
+  location:ShareLocation,
+
+  // Id of the company or player (not needed for BankPool locations)
+  id?:string
 }
 
 export interface Rules {
