@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, Store, Middleware, MiddlewareAPI, Dispatch, AnyAction } from 'redux'
 import { State } from '18dux/types'
 import * as actions from '18dux/actions'
+import rules from '18dux/rules'
 import rootReducer from '18dux/reducers'
 
 const statesMiddleware:Middleware = ({ getState }:MiddlewareAPI) => (next:Dispatch<AnyAction>) => (action:AnyAction) => {
@@ -15,4 +16,4 @@ const statesMiddleware:Middleware = ({ getState }:MiddlewareAPI) => (next:Dispat
 
 export const store:Store = createStore(rootReducer, applyMiddleware(statesMiddleware))
 
-export { actions }
+export { actions, rules }

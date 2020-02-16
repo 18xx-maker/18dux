@@ -8,7 +8,13 @@ import { PLAYER_ADD, PLAYER_REMOVE } from '18dux/actions'
 const playersReducer = (players:Array<Player> = [], action:AnyAction):Array<Player> => {
   switch (action.type) {
     case PLAYER_ADD:
-      return [...players, { id: action.id, cash: 0 }]
+      return [...players,
+        {
+          id: action.id,
+          cash: 0,
+          shares: [],
+          privates: []
+        }]
     case PLAYER_REMOVE:
       return remove(action.index, 1, players)
     default:

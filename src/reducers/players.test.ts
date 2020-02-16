@@ -1,7 +1,8 @@
 import playersReducer from '18dux/reducers/players'
 import { playerAdd, playerRemove } from '18dux/actions'
+import { Player } from '18dux/types'
 
-const Kelsin = { id: 'Kelsin', cash: 0 }
+const Kelsin:Player = { id: 'Kelsin', cash: 0, shares: [], privates: [] }
 const addKelsin = playerAdd('Kelsin')
 const remove0 = playerRemove(0)
 const remove99 = playerRemove(99)

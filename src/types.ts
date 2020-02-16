@@ -1,4 +1,35 @@
+export enum PayoutMethod {
+  Full = 'FULL',
+  Withhold = 'WITHHOLD',
+  Half = 'HALF',
+  HalfRoundHoldingDown = 'HALF_ROUND_HOLDING_DOWN'
+}
+
+// This is where shares of a company can start
+export enum ShareLocation {
+  IPO = 'IPO',
+  BankPool = 'BANK_POOL',
+  Treasury = 'TREASURY'
+}
+
 export interface Rules {
+  // Where do shares start?
+  sharesStart:ShareLocation,
+
+  // How many shares need to be bought to float?
+  companiesFloatOn:number,
+
+  // Does the company get money from shares in weird places?
+  ipoPaysCompany:boolean,
+  treasuryPaysCompany:boolean,
+  bankPoolPaysCompany:boolean,
+
+  // Which payout methods are available?
+  payoutMethods:Array<PayoutMethod>
+}
+
+export interface GameRules {
+  [propName:string]:Rules
 }
 
 export interface Cost {
@@ -68,7 +99,7 @@ export interface Store {
   companies:Array<Company>,
 
   // Bank Pool
-  pool:Array<Share>,
+  bankPool:Array<Share>,
 
   // Unowned Privates
   privates:Array<Private>,
