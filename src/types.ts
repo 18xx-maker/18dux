@@ -92,6 +92,7 @@ export interface Player {
 export interface Company {
   id:string,
   cash:number,
+  marketValue:number,
 
   isFloated:boolean,
 

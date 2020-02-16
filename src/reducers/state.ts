@@ -5,12 +5,12 @@ import { START, END } from '18dux/actions'
 
 const stateReducer = (state:State = State.Setup, action:AnyAction):State => {
   switch (action.type) {
-    case START:
-      return State.Running
-    case END:
-      return State.Ended
-    default:
-      return state
+  case START:
+    return State.Running
+  case END:
+    return State.Ended
+  default:
+    return state
   }
 }
 

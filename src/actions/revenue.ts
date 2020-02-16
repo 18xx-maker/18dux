@@ -1,6 +1,7 @@
 import { State } from '18dux/types'
 
 export const REVENUE = 'REVENUE'
+export const PAY_PRIVATES = 'PAY_PRIVATES'
 
 export const revenueFullPay = (company:string, earnings:number) => ({
   type: REVENUE,
@@ -30,8 +31,12 @@ export const revenueCustomPay = (company:string, earnings:number, percent:number
   percent
 })
 
+export const payPrivates = () => ({
+  type: PAY_PRIVATES
+})
+
 export const revenueStates = {
   [State.Setup]: [],
-  [State.Running]: [REVENUE],
+  [State.Running]: [PAY_PRIVATES, REVENUE],
   [State.Ended]: []
 }

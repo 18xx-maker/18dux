@@ -23,6 +23,11 @@ module.exports = {
     "jest"
   ],
   "rules": {
+    "indent": "off",
+    "@typescript-eslint/indent": ["error", 2, { "FunctionDeclaration": { "parameters": "first" },
+                                                "CallExpression": { "arguments": "first" },
+                                                "ArrayExpression": "first",
+                                                "ObjectExpression": "first" }],
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error", { "vars": "all", "args": "after-used" }]
   }

@@ -1,12 +1,21 @@
-import { GameRules, PayoutMethod, ShareLocation } from '18dux/types'
+import { GameRules, PayoutMethod, Rules, ShareLocation } from '18dux/types'
+
+const base:Rules = {
+  sharesStart: ShareLocation.IPO,
+  companiesFloatOn: 6,
+  ipoPaysCompany: false,
+  treasuryPaysCompany: false,
+  bankPoolPaysCompany: true,
+  payoutMethods: [PayoutMethod.Full, PayoutMethod.Withhold]
+}
 
 const rules:GameRules = {
   1817: {
-    sharesStart: ShareLocation.IPO,
-    companiesFloatOn: 6,
-    ipoPaysCompany: false,
-    treasuryPaysCompany: false,
-    bankPoolPaysCompany: true,
+    ...base,
+    sharesStart: ShareLocation.Treasury,
+    companiesFloatOn: 2,
+    treasuryPaysCompany: true,
+    bankPoolPaysCompany: false,
     payoutMethods: [
       PayoutMethod.Full,
       PayoutMethod.Half,
@@ -14,17 +23,12 @@ const rules:GameRules = {
     ]
   },
   1830: {
-    sharesStart: ShareLocation.IPO,
-    companiesFloatOn: 6,
-    ipoPaysCompany: false,
-    treasuryPaysCompany: false,
-    bankPoolPaysCompany: true,
-    payoutMethods: [PayoutMethod.Full, PayoutMethod.Withhold]
+    ...base
   },
   1846: {
+    ...base,
     sharesStart: ShareLocation.Treasury,
     companiesFloatOn: 2,
-    ipoPaysCompany: false,
     treasuryPaysCompany: true,
     bankPoolPaysCompany: false,
     payoutMethods: [
@@ -34,12 +38,8 @@ const rules:GameRules = {
     ]
   },
   1889: {
-    sharesStart: ShareLocation.IPO,
-    companiesFloatOn: 5,
-    ipoPaysCompany: false,
-    treasuryPaysCompany: false,
-    bankPoolPaysCompany: true,
-    payoutMethods: [PayoutMethod.Full, PayoutMethod.Withhold]
+    ...base,
+    companiesFloatOn: 5
   }
 }
 
