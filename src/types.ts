@@ -57,7 +57,7 @@ export interface GameRules {
   [propName:string]:Rules
 }
 
-export interface Cost {
+export interface Buyable {
   cost:number
 }
 
@@ -72,11 +72,11 @@ export interface Share {
   director:boolean
 }
 
-export interface Train extends Rustable, Cost {
+export interface Train extends Rustable, Buyable {
   name:string
 }
 
-export interface Private extends Rustable, Cost {
+export interface Private extends Rustable, Buyable {
   revenue:number
 }
 
@@ -118,6 +118,7 @@ export enum State {
 
 export interface Store {
   state:State,
+  phase:number,
 
   rules:Rules,
 
